@@ -2,7 +2,7 @@ module AhaStagingbot
   module Commands
     class Claim < SlackRubyBot::Commands::Base
       command 'claim' do |client, data|
-        commands = data.text.gsub(/^(stagingbot|sb)?(\s)?claim/).strip.split(' ')
+        commands = data.text.gsub(/^(stagingbot|sb)?(\s)?claim/, '').strip.split(' ')
         name = commands.first
         server = Server.find_by(name: name)
 

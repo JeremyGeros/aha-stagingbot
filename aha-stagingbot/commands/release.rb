@@ -2,7 +2,7 @@ module AhaStagingbot
   module Commands
     class Release < SlackRubyBot::Commands::Base
       command 'release' do |client, data|
-        name = data.text.gsub(/^(stagingbot|sb)?(\s)?release/).strip
+        name = data.text.gsub(/^(stagingbot|sb)?(\s)?release/, '').strip
         forced = name.include?('force')
         name = name.gsub('force', '').strip
 

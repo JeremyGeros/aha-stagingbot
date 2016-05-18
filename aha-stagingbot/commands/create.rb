@@ -2,7 +2,7 @@ module AhaStagingbot
   module Commands
     class Create < SlackRubyBot::Commands::Base
       command 'create' do |client, data|
-        name = data.text.gsub(/^(stagingbot|sb)?(\s)?create/).strip
+        name = data.text.gsub(/^(stagingbot|sb)?(\s)?create/, '').strip
 
         if Server.exists?(name: name)
           client.say(channel: data.channel, text: "Server #{name} already exists!")
