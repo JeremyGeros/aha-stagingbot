@@ -9,7 +9,7 @@ module AhaStagingbot
         username = client.web_client.users_info(user: data.user).user.real_name
 
         if server
-          if server.claimed
+          if server.claimed && !server.auto_claimed
             if server.claimed_by == username
               client.say(channel: data.channel, text: "You've already claimed #{name}!")
             else
@@ -19,10 +19,10 @@ module AhaStagingbot
             if commands.length > 1
               commands.shift
               claimed_for = commands.join(' ')
-              server.update(claimed: true, claimed_by: username, claimed_at: Time.now, claimed_for: claimed_for)
+              server.update(claimed: true, claimed_by: username, claimed_at: Time.now, claimed_for: claimed_for, auto_claimed: false)
               client.say(channel: data.channel, text: "Got it! You've reserved #{name} for #{claimed_for}.")
             else
-              server.update(claimed: true, claimed_by: username, claimed_at: Time.now)
+              server.update(claimed: true, claimed_by: username, claimed_at: Time.now, auto_claimed: false)
               client.say(channel: data.channel, text: "Got it! You've reserved #{name}.")
             end
           end
