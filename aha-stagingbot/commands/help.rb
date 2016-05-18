@@ -1,7 +1,7 @@
 module AhaStagingbot
   module Commands
     class Help < SlackRubyBot::Commands::Base
-      command 'help' do |client, data, _match|
+      command 'help' do |client, data|
         commands = [
           {
             text: 'StagingBot helps track available staging environments. Commands:'

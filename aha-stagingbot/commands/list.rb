@@ -1,7 +1,7 @@
 module AhaStagingbot
   module Commands
     class List < SlackRubyBot::Commands::Base
-      command 'list' do |client, data, _match|
+      command 'list' do |client, data|
         server_list = Server.all.order(:name).map do |server|
           {
             title: server.name,
