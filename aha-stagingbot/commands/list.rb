@@ -2,6 +2,7 @@ module AhaStagingbot
   module Commands
     class List < SlackRubyBot::Commands::Base
       command 'list' do |client, data|
+        
         server_list = Server.all.order(:name).map do |server|
           text =
             if server.claimed
@@ -14,6 +15,7 @@ module AhaStagingbot
               'Unclaimed'
             end
           {
+            fallback: "List of servers"
             title: server.name,
             text: text,
             color: server.claimed ? '#FF0000' : '#00FF00'
