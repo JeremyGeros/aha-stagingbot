@@ -3,9 +3,19 @@ module AhaStagingbot
     class List < SlackRubyBot::Commands::Base
       command 'list' do |client, data|
         server_list = Server.all.order(:name).map do |server|
+          text =
+            if server.claimed
+              if server.claimed_for && server.claimed_for != ''
+                "Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)} -- #{server.claimed_for}"
+              else
+                "Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)}"
+              end
+            else
+              'Unclaimed'
+            end
           {
             title: server.name,
-            text: server.claimed ? "Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)}" : 'Unclaimed',
+            text: text,
             color: server.claimed ? '#FF0000' : '#00FF00'
           }
         end

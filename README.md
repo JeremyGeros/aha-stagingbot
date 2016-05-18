@@ -21,7 +21,8 @@ CREATE TABLE servers (
   name varchar (50) NOT NULL,
   claimed boolean,
   claimed_by varchar (50),
-  claimed_at timestamp without time zone
+  claimed_at timestamp without time zone,
+  claimed_for varchar(250)
 );
 ```
 * Create `.env` with SLACK_API_TOKEN and DATABASE_URL
