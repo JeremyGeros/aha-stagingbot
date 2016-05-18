@@ -4,9 +4,6 @@ module AhaStagingbot
       command 'help' do |client, data|
         commands = [
           {
-            text: 'StagingBot helps track available staging environments. Commands:'
-          },
-          {
             title: 'stagingbot list',
             text: 'Lists staging servers with status'
           },
@@ -20,7 +17,7 @@ module AhaStagingbot
           }
         ]
 
-        client.web_client.chat_postMessage(channel: data.channel, attachments: commands, as_user: true)
+        client.web_client.chat_postMessage(channel: data.channel, text: 'StagingBot helps track available staging environments. Commands:', attachments: commands, as_user: true)
       end
     end
   end
