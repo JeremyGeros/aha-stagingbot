@@ -2,7 +2,7 @@ module AhaStagingbot
   module Commands
     class Destroy < SlackRubyBot::Commands::Base
       command 'destroy' do |client, data, _match|
-        name = data.text.gsub('stagingbot destroy', '').strip
+        name = data.text.gsub('stagingbot destroy', '').gsub('sb destroy', '').strip
         server = Server.find_by(name: name)
 
         if server
