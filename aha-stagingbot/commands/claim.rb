@@ -13,7 +13,7 @@ module AhaStagingbot
             if server.claimed_by == username
               client.say(channel: data.channel, text: "You've already claimed #{name}!")
             else
-              client.say(channel: data.channel, text: "Sorry, #{name} is already reserved by #{username}.")
+              client.say(channel: data.channel, text: "Sorry, #{name} is already reserved by #{server.claimed_by}.")
             end
           else
             if commands.length > 1
