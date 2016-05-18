@@ -11,7 +11,7 @@ module AhaStagingbot
             text: 'Lists staging servers with status'
           },
           {
-            title: 'stagingbot claim <name>',
+            title: 'stagingbot claim <name> <branch_or_reason>',
             text: 'Claims the staging server with the provided name'
           },
           {
