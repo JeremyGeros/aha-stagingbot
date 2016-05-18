@@ -12,13 +12,18 @@ module AhaStagingbot
         
         if server 
           if server.claimed
-            server.update(
-              claimed: true, 
-              claimed_by: user, 
-              claimed_at: Time.now, 
-              claimed_for: params['claimed_for'] + " taken from #{server.claimed_by}", 
-              auto_claimed: true
-            ) if server.claimed_by != user
+            if server.claimed_by != user
+              client = Slack::Web::Client.new(ENV['SLACK_API_TOKEN'])
+              client.chat_postMessage(channel: '#staging', text: "#{server.name} has been auto-claimed away from #{server.claimed_by} by #{user} via a deployment.", as_user: true)
+
+              server.update(
+                claimed: true, 
+                claimed_by: user, 
+                claimed_at: Time.now, 
+                claimed_for: params['claimed_for'] + " taken from #{server.claimed_by}", 
+                auto_claimed: true
+              )
+            end
           else
             server.update(
               claimed: true, 
