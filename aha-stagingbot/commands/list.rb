@@ -6,9 +6,9 @@ module AhaStagingbot
           text =
             if server.claimed
               if server.claimed_for && server.claimed_for != ''
-                "Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)} -- #{server.claimed_for}"
+                "#{'Auto ' if server.auto_claimed}Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)} -- #{server.claimed_for}"
               else
-                "Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)}"
+                "#{'Auto ' if server.auto_claimed}Claimed by #{server.claimed_by} for #{time_diff(Time.now, server.claimed_at)}"
               end
             else
               'Unclaimed'

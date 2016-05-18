@@ -10,4 +10,6 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Server < ActiveRecord::Base
+  # attrs
+  # id, name, claimed, claimed_by, claimed_at, claimed_for, auto_claimed
 end
