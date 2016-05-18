@@ -8,6 +8,7 @@ require_relative 'aha-stagingbot/commands/list'
 require_relative 'aha-stagingbot/commands/release'
 
 SlackRubyBot.configure do |config|
+  config.aliases = ['sb']
   config.send_gifs = false
 end
 
