@@ -1,1 +1,1 @@
-web: bundle exec ruby aha-stagingbot.rb
+web: bundle exec puma -p $PORT

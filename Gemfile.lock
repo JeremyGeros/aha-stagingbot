@@ -66,6 +66,7 @@ GEM
     nio4r (1.2.1)
     oj (2.15.0)
     pg (0.18.2)
+    puma (3.4.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -110,9 +111,11 @@ DEPENDENCIES
   dotenv
   foreman
   pg
+  puma
   rake
+  sinatra
   sinatra-activerecord
   slack-ruby-bot
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

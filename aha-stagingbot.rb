@@ -16,5 +16,3 @@ module AhaStagingbot
   class Bot < SlackRubyBot::Bot
   end
 end
-
-AhaStagingbot::Bot.run

@@ -4,6 +4,8 @@ gem 'slack-ruby-bot'
 gem 'dotenv'
 gem 'celluloid-io'
 gem 'activerecord'
+gem 'puma'
+gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'pg'
 
