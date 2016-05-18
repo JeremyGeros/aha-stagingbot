@@ -16,7 +16,7 @@ module AhaStagingbot
               server.update(claimed: false, claimed_by: nil, claimed_at: nil)
               client.say(channel: data.channel, text: "Got it! #{name} is now released.")
             else
-              client.say(channel: data.channel, text: "#{name} was reserved by #{username} (run `stagingbot release #{name} force` to force-release).")
+              client.say(channel: data.channel, text: "#{name} was reserved by #{server.claimed_by} (run `stagingbot release #{name} force` to force-release).")
             end
           else
             client.say(channel: data.channel, text: "#{name} is already unclaimed.")
