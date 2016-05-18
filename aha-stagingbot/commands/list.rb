@@ -10,7 +10,7 @@ module AhaStagingbot
           }
         end
 
-        client.web_client.chat_postMessage(channel: data.channel, attachments: server_list)
+        client.web_client.chat_postMessage(channel: data.channel, attachments: server_list, as_user: true)
       end
 
       private

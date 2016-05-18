@@ -1,6 +1,7 @@
 require 'slack-ruby-bot'
 require_relative 'aha-stagingbot/model'
 require_relative 'aha-stagingbot/commands/claim'
+require_relative 'aha-stagingbot/commands/help'
 require_relative 'aha-stagingbot/commands/list'
 require_relative 'aha-stagingbot/commands/release'
 
