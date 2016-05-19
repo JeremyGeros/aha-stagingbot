@@ -15,7 +15,7 @@ module AhaStagingbot
               'Unclaimed'
             end
           {
-            fallback: "List of servers"
+            fallback: "List of servers",g
             title: server.name,
             text: text,
             color: server.claimed ? '#FF0000' : '#00FF00'
